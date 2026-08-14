@@ -1,0 +1,123 @@
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: "Cairo", sans-serif;
+  color: #3E302B;
+  background: #FFF8F6;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: #FFF8F6;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #B99A72;
+  outline-offset: 3px;
+}
+
+::selection {
+  background: #E8C5C7;
+  color: #3E302B;
+}
+
+@layer components {
+  .eyebrow {
+    font-size: 0.68rem;
+    letter-spacing: 0.22em;
+    color: #B99A72;
+    font-weight: 600;
+  }
+
+  .nav-link {
+    position: relative;
+    font-size: 0.78rem;
+    color: #3E302B;
+    transition: color 180ms ease;
+  }
+
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: -7px;
+    width: 0;
+    height: 1px;
+    background: #B99A72;
+    transition: width 220ms ease;
+  }
+
+  .nav-link:hover::after {
+    width: 100%;
+  }
+
+  .field-label {
+    display: block;
+    margin-top: 1.25rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #3E302B;
+  }
+
+  .field-input {
+    width: 100%;
+    border: 1px solid rgba(107, 81, 71, 0.14);
+    border-radius: 1rem;
+    background: #FFF8F6;
+    padding: 0.85rem 1rem;
+    font-size: 0.88rem;
+    color: #3E302B;
+    transition: border-color 180ms ease, box-shadow 180ms ease, background 180ms ease;
+  }
+
+  .field-input::placeholder {
+    color: rgba(107, 81, 71, 0.45);
+  }
+
+  .field-input:hover {
+    border-color: rgba(107, 81, 71, 0.22);
+  }
+
+  .field-input:focus {
+    border-color: rgba(185, 154, 114, 0.8);
+    background: #fff;
+    box-shadow: 0 0 0 4px rgba(185, 154, 114, 0.10);
+    outline: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
