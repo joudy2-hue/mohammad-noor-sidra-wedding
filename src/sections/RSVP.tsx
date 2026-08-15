@@ -108,7 +108,7 @@ export function RSVP() {
             required
             type="number"
             min={1}
-            max={150}
+            max={5}
             value={form.guests}
             onChange={(e) => setForm((f) => ({ ...f, guests: e.target.value }))}
             className="field-input"
@@ -140,14 +140,15 @@ export function RSVP() {
             </div>
           </fieldset>
 
-          <label className="field-label" htmlFor="notes">ملاحظات</label>
+          <label className="field-label" htmlFor="notes">ذكرى لطيفة للعروسين ... 
+          </label>
           <textarea
             id="notes"
             rows={4}
             value={form.notes}
             onChange={(e) => setForm((f) => ({ ...f, notes: e.target.value }))}
             className="field-input resize-none"
-            placeholder="أي ملاحظات نود معرفتها..."
+            placeholder="أي ذكرى تودين كتابتها..."
           />
 
           {status === "error" && (

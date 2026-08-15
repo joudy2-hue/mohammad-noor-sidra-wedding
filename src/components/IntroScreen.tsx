@@ -34,7 +34,7 @@ export function IntroScreen() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.15, duration: 0.75 }}
         >
-          محمد نور <span className="text-wedding-gold">&</span> سدرة
+          مُحَمد <span className="text-wedding-gold">&</span> سِدرَة
         </motion.h1>
         <motion.div
           className="mx-auto mt-6 h-px w-20 bg-wedding-gold/60"

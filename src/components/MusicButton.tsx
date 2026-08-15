@@ -8,16 +8,54 @@ export function MusicButton() {
 
   useEffect(() => {
     const audio = new Audio(weddingData.musicUrl);
+
     audio.loop = true;
-    audio.preload = "none";
+    audio.preload = "auto";
     audioRef.current = audio;
 
-    const onEnded = () => setPlaying(false);
-    audio.addEventListener("ended", onEnded);
+    const startMusic = async () => {
+      const currentAudio = audioRef.current;
+
+      if (!currentAudio || !currentAudio.paused) return;
+
+      try {
+        await currentAudio.play();
+        setPlaying(true);
+      } catch {
+        // المتصفح منع التشغيل التلقائي.
+        // سنحاول مرة أخرى بعد أول تفاعل من المستخدم.
+      }
+    };
+
+    const handleFirstInteraction = () => {
+      startMusic();
+      removeInteractionListeners();
+    };
+
+    const removeInteractionListeners = () => {
+      window.removeEventListener("click", handleFirstInteraction);
+      window.removeEventListener("touchstart", handleFirstInteraction);
+      window.removeEventListener("keydown", handleFirstInteraction);
+      window.removeEventListener("scroll", handleFirstInteraction);
+    };
+
+    audio.addEventListener("play", () => setPlaying(true));
+    audio.addEventListener("pause", () => setPlaying(false));
+
+    // محاولة التشغيل مباشرة عند فتح الموقع
+    startMusic();
+
+    // إذا منع المتصفح التشغيل، نحاول بعد أول تفاعل
+    window.addEventListener("click", handleFirstInteraction, { once: true });
+    window.addEventListener("touchstart", handleFirstInteraction, { once: true });
+    window.addEventListener("keydown", handleFirstInteraction, { once: true });
+    window.addEventListener("scroll", handleFirstInteraction, { once: true });
 
     return () => {
+      removeInteractionListeners();
       audio.pause();
-      audio.removeEventListener("ended", onEnded);
+      audio.src = "";
+      audioRef.current = null;
     };
   }, []);
 
@@ -25,15 +63,13 @@ export function MusicButton() {
     const audio = audioRef.current;
     if (!audio) return;
 
-    if (playing) {
+    if (!audio.paused) {
       audio.pause();
-      setPlaying(false);
       return;
     }
 
     try {
       await audio.play();
-      setPlaying(true);
     } catch {
       setPlaying(false);
     }

@@ -3,7 +3,7 @@ import react from "@vitejs/plugin-react";
 
 export default defineConfig({
   plugins: [react()],
-  base: "/text_wedding_invitation/",
+  base: "/",
   build: {
     target: "es2020",
     sourcemap: false

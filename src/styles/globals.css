@@ -1,11 +1,10 @@
-@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  font-family: "Cairo", sans-serif;
+  font-family: "Noto Sans Arabic", sans-serif;
   color: #3E302B;
   background: #FFF8F6;
   font-synthesis: none;
@@ -20,6 +19,23 @@ body {
   margin: 0;
   min-width: 320px;
   background: #FFF8F6;
+}
+/* تكبير النصوص داخل محتوى الموقع درجة واحدة */
+main p,
+main button,
+main label,
+main legend,
+main input,
+main textarea,
+main select,
+main a {
+  font-size: calc(1em + 1px);
+}
+
+/* الهيدر والفوتر يبقيان بالحجم الأصلي */
+nav,
+footer {
+  font-size: 16px;
 }
 
 button,

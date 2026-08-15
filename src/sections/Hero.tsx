@@ -44,7 +44,7 @@ export function Hero() {
             سبحان من جمَعَ القلوبَ بفضلِهِ وعلى رحابِ الودِّ عمَّرَ دارها
           </p>
           <p className="mt-3 text-sm text-white/85">بكلِّ معاني الحبِّ والودِّ</p>
-          <p className="mt-8 text-sm">تتشرف عائلتي</p>
+          <p className="mt-8 text-sm">تَتَشَرَفُ عائِلَتَي</p>
           <h2 className="mt-2 font-serif text-2xl md:text-3xl">{weddingData.families}</h2>
           <p className="mt-3 text-sm">بدعوتكم لحضور حفل زفاف نجليهما</p>
 
@@ -52,7 +52,7 @@ export function Hero() {
             {weddingData.groom} <span className="text-wedding-gold">&</span> {weddingData.bride}
           </h1>
 
-          <p className="mt-7 text-sm">وذلك بمشيئة اللَّهِ تعالى</p>
+          <p className="mt-7 text-sm">وذلِكَ بِمَشيئَةِ اللَّهِ تَعالَى</p>
           <p className="mt-2 text-lg">{weddingData.dayLabel} · {weddingData.dateLabel} · {weddingData.timeLabel}</p>
 
           <motion.button
